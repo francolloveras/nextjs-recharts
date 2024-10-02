@@ -1,4 +1,5 @@
 import DailyCard from '@/components/daily-card'
+import Footer from '@/components/footer'
 import MonthCard from '@/components/month-card'
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <section className="h-72 w-full rounded-md border border-neutral-600 bg-neutral-900 px-6 py-4">
         <MonthCard />
       </section>
+      <Footer />
     </main>
   )
 }
