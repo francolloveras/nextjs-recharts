@@ -1,6 +1,6 @@
 import PieChart from '@/ui/pie-chard'
 import { salesData } from '@/lib/data'
-import { continentsColors } from '@/lib/constants'
+import { CONTINENTS_COLORS } from '@/lib/constants'
 
 const getRangeDaysData = (rangeInDays: number) => {
   // Create a static date to get the range of days.
@@ -30,7 +30,7 @@ const getRangeDaysData = (rangeInDays: number) => {
     return {
       name: key,
       value,
-      color: continentsColors[key]
+      color: CONTINENTS_COLORS[key]
     }
   })
 
@@ -40,7 +40,7 @@ const getRangeDaysData = (rangeInDays: number) => {
     return {
       name: country,
       value,
-      color: continentsColors[continent]
+      color: CONTINENTS_COLORS[continent]
     }
   })
 
