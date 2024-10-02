@@ -1,4 +1,6 @@
-export const salesData = [
+import { CONTINENTS_COLORS } from '@/lib/constants'
+
+export const allSales = [
   { id: 1, continent: 'America', country: 'United States', date: new Date(2024, 0, 15) },
   { id: 2, continent: 'America', country: 'Brazil', date: new Date(2024, 1, 10) },
   { id: 3, continent: 'Europe', country: 'Germany', date: new Date(2024, 2, 22) },
@@ -100,3 +102,52 @@ export const salesData = [
   { id: 99, continent: 'America', country: 'Brazil', date: new Date(2024, 8, 18) },
   { id: 100, continent: 'Europe', country: 'France', date: new Date(2024, 8, 19) }
 ]
+
+export const getDataByRangeDays = (rangeInDays: number) => {
+  // Create a static date to get the range of days.
+  const date = new Date(2024, 9, 1)
+
+  const startDate = new Date(date.setDate(date.getDate() - rangeInDays))
+  const startOfRange = new Date(startDate.setHours(0, 0, 0, 0))
+
+  const endOfRange = new Date()
+  endOfRange.setHours(23, 59, 59, 999)
+
+  const data = allSales.filter(
+    ({ date }) => date.getTime() >= startOfRange.getTime() && date.getTime() <= endOfRange.getTime()
+  )
+
+  const rawContinents: Record<string, number> = {}
+  const rawCountries: Record<string, number> = {}
+
+  data.forEach(({ continent, country }) => {
+    rawContinents[continent] = (rawContinents[continent] ?? 0) + 1
+
+    const countryKey = `${continent} - ${country}`
+    rawCountries[countryKey] = (rawCountries[countryKey] ?? 0) + 1
+  })
+
+  const continents = Object.entries(rawContinents).map(([key, value]) => {
+    return {
+      name: key,
+      value,
+      color: CONTINENTS_COLORS[key]
+    }
+  })
+
+  const countries = Object.entries(rawCountries).map(([key, value]) => {
+    const [continent, country] = key.split(' - ')
+
+    return {
+      name: country,
+      value,
+      color: CONTINENTS_COLORS[continent]
+    }
+  })
+
+  return {
+    continents,
+    countries,
+    total: data.length
+  }
+}

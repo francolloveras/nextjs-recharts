@@ -1,55 +1,5 @@
+import { getDataByRangeDays } from '@/lib/data'
 import PieChart from '@/ui/pie-chard'
-import { salesData } from '@/lib/data'
-import { CONTINENTS_COLORS } from '@/lib/constants'
-
-const getRangeDaysData = (rangeInDays: number) => {
-  // Create a static date to get the range of days.
-  const date = new Date(2024, 9, 1)
-
-  const startDate = new Date(date.setDate(date.getDate() - rangeInDays))
-  const startOfRange = new Date(startDate.setHours(0, 0, 0, 0))
-
-  const endOfRange = new Date()
-  endOfRange.setHours(23, 59, 59, 999)
-
-  const data = salesData.filter(
-    ({ date }) => date.getTime() >= startOfRange.getTime() && date.getTime() <= endOfRange.getTime()
-  )
-
-  const rawContinents: Record<string, number> = {}
-  const rawCountries: Record<string, number> = {}
-
-  data.forEach(({ continent, country }) => {
-    rawContinents[continent] = (rawContinents[continent] ?? 0) + 1
-
-    const countryKey = `${continent} - ${country}`
-    rawCountries[countryKey] = (rawCountries[countryKey] ?? 0) + 1
-  })
-
-  const continents = Object.entries(rawContinents).map(([key, value]) => {
-    return {
-      name: key,
-      value,
-      color: CONTINENTS_COLORS[key]
-    }
-  })
-
-  const countries = Object.entries(rawCountries).map(([key, value]) => {
-    const [continent, country] = key.split(' - ')
-
-    return {
-      name: country,
-      value,
-      color: CONTINENTS_COLORS[continent]
-    }
-  })
-
-  return {
-    continents,
-    countries,
-    total: data.length
-  }
-}
 
 interface Props {
   title: string
@@ -57,7 +7,7 @@ interface Props {
 }
 
 export default function BasicCard({ title, range }: Props) {
-  const { continents, countries, total } = getRangeDaysData(range)
+  const { continents, countries, total } = getDataByRangeDays(range)
 
   return (
     <article className="rounded-md border border-neutral-600 bg-neutral-900 px-6 py-4">
