@@ -1,5 +1,5 @@
 import { getDataByRangeDays } from '@/lib/data'
-import PieChart from '@/ui/pie-chard'
+import PieChart from '@/ui/pie-chart'
 
 interface Props {
   title: string
