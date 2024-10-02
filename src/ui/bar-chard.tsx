@@ -13,6 +13,7 @@ import {
 } from 'recharts'
 
 import { CONTINENTS, CONTINENTS_COLORS } from '@/lib/constants'
+import CustomTooltip from '@/ui/custom-tooltip'
 
 interface Props {
   data: {
@@ -30,8 +31,7 @@ export default function BarChart({ data }: Props) {
           className="[&>g>g>text]:fill-on-surface/80 [&>line]:stroke-on-surface/80"
         />
         <YAxis className="[&>g>g>text]:fill-on-surface/80 [&>line]:stroke-on-surface/80" />
-        {/* <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.4)' }} /> */}
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.4)' }} />
         <Legend />
         {Object.values(CONTINENTS).map((continent) => (
           <Bar

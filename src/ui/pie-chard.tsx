@@ -9,6 +9,8 @@ import {
   Tooltip
 } from 'recharts'
 
+import CustomTooltip from '@/ui/custom-tooltip'
+
 interface Props {
   data: {
     name: string
@@ -39,9 +41,7 @@ export default function PieChart({ data, total }: Props) {
           ))}
           <Label position="center" value={`Total ${total}`} fill="#e5e5e5" fontSize={14} />
         </Pie>
-        {/* TODO ADD CUSTOM TOOLTIP */}
-        {/* <Tooltip content={<CustomTooltip />} /> */}
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />} />
       </ImportedPieChart>
     </ResponsiveContainer>
   )
