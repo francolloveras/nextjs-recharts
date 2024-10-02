@@ -36,3 +36,11 @@ body {
 .tooltip-block-color {
   @apply block size-2 rounded-full;
 }
+
+.bar-chart-x-axis {
+  @apply [&>g>g>text]:fill-neutral-400 [&>line]:stroke-neutral-400;
+}
+
+.bar-chart-y-axis {
+  @apply [&>g>g>text]:fill-neutral-400 [&>line]:stroke-neutral-400;
+}

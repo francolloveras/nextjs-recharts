@@ -26,11 +26,8 @@ export default function BarChart({ data }: Props) {
     <ResponsiveContainer height="100%" width="100%">
       <ImportedBarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis
-          dataKey="name"
-          className="[&>g>g>text]:fill-on-surface/80 [&>line]:stroke-on-surface/80"
-        />
-        <YAxis className="[&>g>g>text]:fill-on-surface/80 [&>line]:stroke-on-surface/80" />
+        <XAxis dataKey="name" className="bar-chart-x-axis" />
+        <YAxis className="bar-chart-y-axis" />
         <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.4)' }} />
         <Legend />
         {Object.values(CONTINENTS).map((continent) => (
