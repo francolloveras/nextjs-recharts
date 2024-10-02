@@ -151,3 +151,30 @@ export const getDataByRangeDays = (rangeInDays: number) => {
     total: data.length
   }
 }
+
+export const getDataByMonths = () => {
+  const year = new Date().getFullYear()
+  const months = Array.from({ length: 12 }, (_, index) => index)
+
+  const data = months.map((month) => {
+    const startOfMonth = new Date(year, month, 1)
+    const endOfMonth = new Date(year, month + 1, 1)
+
+    const salesByMonth = allSales.filter(
+      ({ date }) =>
+        date.getTime() >= startOfMonth.getTime() && date.getTime() <= endOfMonth.getTime()
+    )
+
+    const sales = salesByMonth.reduce<Record<string, number>>((acc, sale) => {
+      acc[sale.continent] = (acc[sale.continent] ?? 0) + 1
+      return acc
+    }, {})
+
+    return {
+      name: startOfMonth.toLocaleString('en-EU', { month: 'long' }),
+      ...sales
+    }
+  })
+
+  return data
+}
