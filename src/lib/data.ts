@@ -100,10 +100,3 @@ export const salesData = [
   { id: 99, continent: 'America', country: 'Brazil', date: new Date(2024, 8, 18) },
   { id: 100, continent: 'Europe', country: 'France', date: new Date(2024, 8, 19) }
 ]
-
-export const continentColors: Record<string, string> = {
-  Africa: '#fca5a5',
-  America: '#86efac',
-  Asia: '#fdba74',
-  Europe: '#93c5fd'
-}
