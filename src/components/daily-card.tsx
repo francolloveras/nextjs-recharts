@@ -2,21 +2,23 @@ import PieChart from '@/ui/pie-chard'
 import { continentColors, salesData } from '@/lib/data'
 
 const getRangeDaysData = (rangeInDays: number) => {
-  // TODO FILTER DATA BASED IN THE RANGE OF DAYS
-  console.log(rangeInDays)
+  // Create a static date to get the range of days.
+  const date = new Date(2024, 9, 1)
 
-  // const date = new Date()
+  const startDate = new Date(date.setDate(date.getDate() - rangeInDays))
+  const startOfRange = new Date(startDate.setHours(0, 0, 0, 0))
 
-  // const startDate = new Date(date.setDate(date.getDate() - rangeInDays))
-  // const startOfRange = new Date(startDate.setHours(0, 0, 0, 0))
+  const endOfRange = new Date()
+  endOfRange.setHours(23, 59, 59, 999)
 
-  // const endOfRange = new Date()
-  // endOfRange.setHours(23, 59, 59, 999)
+  const data = salesData.filter(
+    ({ date }) => date.getTime() >= startOfRange.getTime() && date.getTime() <= endOfRange.getTime()
+  )
 
   const rawContinents: Record<string, number> = {}
   const rawCountries: Record<string, number> = {}
 
-  salesData.forEach(({ continent, country }) => {
+  data.forEach(({ continent, country }) => {
     rawContinents[continent] = (rawContinents[continent] ?? 0) + 1
 
     const countryKey = `${continent} - ${country}`
@@ -44,7 +46,7 @@ const getRangeDaysData = (rangeInDays: number) => {
   return {
     continents,
     countries,
-    total: salesData.length
+    total: data.length
   }
 }
 
