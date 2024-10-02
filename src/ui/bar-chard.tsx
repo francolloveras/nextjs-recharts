@@ -12,19 +12,15 @@ import {
   YAxis
 } from 'recharts'
 
-import CustomTooltip from '@/ui/custom-tooltip'
+import { CONTINENTS, CONTINENTS_COLORS } from '@/lib/constants'
 
 interface Props {
   data: {
     name: string
   }[]
-  provinces: {
-    name: string
-    color: string
-  }[]
 }
 
-export default function BarChart({ data, provinces }: Props) {
+export default function BarChart({ data }: Props) {
   return (
     <ResponsiveContainer height="100%" width="100%">
       <ImportedBarChart data={data}>
@@ -34,14 +30,23 @@ export default function BarChart({ data, provinces }: Props) {
           className="[&>g>g>text]:fill-on-surface/80 [&>line]:stroke-on-surface/80"
         />
         <YAxis className="[&>g>g>text]:fill-on-surface/80 [&>line]:stroke-on-surface/80" />
-        <Tooltip
-          content={(props) => <CustomTooltip {...props} />}
-          cursor={{ fill: 'rgba(0, 0, 0, 0.4)' }}
-        />
+        {/* <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.4)' }} /> */}
+        <Tooltip />
         <Legend />
-        {provinces.map(({ name, color }) => (
-          <Bar id={name} key={name} layout="vertical" stackId="a" dataKey={name} fill={color}>
-            <LabelList id={name} dataKey={name} style={{ fill: 'black', fontSize: '12px' }} />
+        {Object.values(CONTINENTS).map((continent) => (
+          <Bar
+            id={continent}
+            key={continent}
+            layout="vertical"
+            stackId="a"
+            dataKey={continent}
+            fill={CONTINENTS_COLORS[continent]}
+          >
+            <LabelList
+              id={continent}
+              dataKey={continent}
+              style={{ fill: 'black', fontSize: '12px' }}
+            />
           </Bar>
         ))}
       </ImportedBarChart>
