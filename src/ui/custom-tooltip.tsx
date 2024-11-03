@@ -8,13 +8,13 @@ export default function CustomTooltip({ active, payload, label }: Props) {
   }
 
   return (
-    <ul className="tooltip-container">
+    <ul className="rounded-md border border-neutral-600 bg-neutral-800 px-2.5 py-1 text-sm">
       {typeof label === 'string' && label && <p>{label}:</p>}
       {payload.map(({ dataKey, name, value, color, payload }) => (
-        <li key={dataKey} className="tooltip-item">
+        <li key={dataKey} className="flex items-center gap-x-1">
           {(payload.color || color) && (
             <span
-              className="tooltip-block-color"
+              className="block size-2 rounded-full"
               style={{ backgroundColor: payload.color ?? color }}
             />
           )}
