@@ -4,7 +4,7 @@ export default function Footer() {
       <span>Created by </span>
       <a
         href="http://github.com/francolloveras"
-        className="font-medium hover:text-red-400 hover:underline"
+        className="hover:text-red-400 underline underline-offset-2"
         target="_blank"
         rel="noopener noreferrer"
       >
