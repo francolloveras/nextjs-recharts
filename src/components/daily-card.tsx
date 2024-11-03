@@ -11,7 +11,7 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
   const { continents, countries, total } = await getDataByRangeDays(range, timeout)
 
   return (
-    <article className="rounded-md border border-neutral-600 bg-neutral-900 px-6 py-4">
+    <article className="w-1/3 rounded-md border border-neutral-600 bg-neutral-900 px-6 py-4">
       <header className="mb-2">
         <h3 className="text-lg text-neutral-100">{title}</h3>
       </header>
@@ -21,7 +21,7 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
           <table className="w-3/5">
             <thead className="border-b border-neutral-600">
               <tr>
-                <th className="w-6" />
+                <th className="w-5" />
                 <th className="w-24 py-1 text-left font-normal">Continent</th>
                 <th className="py-1 pr-6 text-center font-normal">Sales</th>
                 <th className="py-1 text-right font-normal">%</th>
@@ -36,7 +36,7 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
                       <td>
                         <span
                           style={{ backgroundColor: color }}
-                          className="block size-3.5 rounded-full"
+                          className="block size-3 mr-1 rounded-full"
                         />
                       </td>
                       <td>{name}</td>
@@ -58,7 +58,7 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
           <table className="w-full">
             <thead className="sticky top-0 bg-neutral-900">
               <tr>
-                <th className="w-6" />
+                <th className="w-5" />
                 <th className="py-1 text-left font-normal">Country</th>
                 <th className="py-1 pr-6 text-center font-normal">Sales</th>
                 <th className="py-1 text-right font-normal">%</th>
@@ -73,10 +73,10 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
                   .sort((a, b) => b.value - a.value)
                   .map(({ name, value, color }, index) => (
                     <tr key={`cell-${name}-${value}-${index}`} className="[&>*]:py-1">
-                      <td>
+                      <td className="w-5">
                         <span
                           style={{ backgroundColor: color }}
-                          className="block size-3.5 rounded-full"
+                          className="block mr-1 size-3 rounded-full"
                         />
                       </td>
                       <td>{name}</td>
