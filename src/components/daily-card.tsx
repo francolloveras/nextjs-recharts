@@ -4,10 +4,11 @@ import PieChart from '@/ui/pie-chart'
 interface Props {
   title: string
   range: number
+  timeout?: number
 }
 
-export default function DailyCard({ title, range }: Props) {
-  const { continents, countries, total } = getDataByRangeDays(range)
+export default async function DailyCard({ title, range, timeout = 0 }: Props) {
+  const { continents, countries, total } = await getDataByRangeDays(range, timeout)
 
   return (
     <article className="rounded-md border border-neutral-600 bg-neutral-900 px-6 py-4">

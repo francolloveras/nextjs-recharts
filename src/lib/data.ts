@@ -253,7 +253,9 @@ export const allSales = [
   { id: 250, continent: 'Asia', country: 'China', date: new Date(2024, 1, 19) }
 ]
 
-export const getDataByRangeDays = (rangeInDays: number) => {
+export const getDataByRangeDays = async (rangeInDays: number, timeout: number) => {
+  await new Promise((resolve) => setTimeout(resolve, timeout))
+
   // Create a static date to get the range of days.
   const date = new Date(2024, 9, 1)
 
