@@ -6,12 +6,12 @@ interface Props {
   range: number
 }
 
-export default function BasicCard({ title, range }: Props) {
+export default function DailyCard({ title, range }: Props) {
   const { continents, countries, total } = getDataByRangeDays(range)
 
   return (
     <article className="rounded-md border border-neutral-600 bg-neutral-900 px-6 py-4">
-      <header className="mb-2 flex items-center justify-between">
+      <header className="mb-2">
         <h3 className="text-lg text-neutral-100">{title}</h3>
       </header>
       <main className="flex w-full flex-col gap-y-2">
