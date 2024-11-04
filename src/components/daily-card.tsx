@@ -36,7 +36,7 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
                       <td>
                         <span
                           style={{ backgroundColor: color }}
-                          className="block size-3 mr-1 rounded-full"
+                          className="mr-1 block size-3 rounded-full"
                         />
                       </td>
                       <td>{name}</td>
@@ -54,7 +54,7 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
             </tbody>
           </table>
         </div>
-        <div className="scrollbar h-[calc(7*32.5px)] overflow-x-hidden overflow-y-scroll">
+        <div className="h-[calc(7*32.5px)] overflow-x-hidden overflow-y-scroll">
           <table className="w-full">
             <thead className="sticky top-0 bg-neutral-900">
               <tr>
@@ -76,7 +76,7 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
                       <td className="w-5">
                         <span
                           style={{ backgroundColor: color }}
-                          className="block mr-1 size-3 rounded-full"
+                          className="mr-1 block size-3 rounded-full"
                         />
                       </td>
                       <td>{name}</td>

@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
-    <footer className="text-neutral-400 text-center mt-8 mb-4">
+    <footer className="mb-4 mt-8 text-center text-neutral-400">
       <span>Created by </span>
       <a
         href="http://github.com/francolloveras"
-        className="hover:text-red-400 underline underline-offset-2"
+        className="underline underline-offset-2 hover:text-red-400"
         target="_blank"
         rel="noopener noreferrer"
       >
