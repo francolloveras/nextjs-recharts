@@ -22,8 +22,8 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
             <thead className="border-b border-neutral-600">
               <tr>
                 <th className="w-5" />
-                <th className="w-24 py-1 text-left font-normal">Continent</th>
-                <th className="py-1 pr-6 text-center font-normal">Sales</th>
+                <th className="py-1 text-left font-normal">Continent</th>
+                <th className="py-1 text-center font-normal">Sales</th>
                 <th className="py-1 text-right font-normal">%</th>
               </tr>
             </thead>
