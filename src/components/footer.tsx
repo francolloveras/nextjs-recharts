@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="mb-4 mt-8 text-center text-neutral-400">
+    <footer className="text-center text-neutral-400">
       <span>Created by </span>
       <a
         href="http://github.com/francolloveras"
