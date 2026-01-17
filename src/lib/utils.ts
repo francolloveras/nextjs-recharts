@@ -1,10 +1,10 @@
 import { CONTINENTS, COUNTRIES } from '@/lib/constants'
 
-export const getRandomNumberByRange = (min: number, max: number) => {
+export function getRandomNumberByRange(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-export const createRandomSales = () => {
+export function createRandomSales() {
   const sales = []
 
   const continents = Object.values(CONTINENTS)

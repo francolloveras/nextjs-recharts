@@ -3,7 +3,7 @@ import { createRandomSales } from '@/lib/utils'
 
 export const allSales = createRandomSales()
 
-export const getDataByRangeDays = async (rangeInDays: number, timeout: number) => {
+export async function getDataByRangeDays(rangeInDays: number, timeout: number) {
   await new Promise((resolve) => setTimeout(resolve, timeout))
 
   // Create a static date to get the range of days.
@@ -54,7 +54,7 @@ export const getDataByRangeDays = async (rangeInDays: number, timeout: number) =
   }
 }
 
-export const getDataByMonths = () => {
+export function getDataByMonths() {
   const year = new Date().getFullYear()
   const months = Array.from({ length: 12 }, (_, index) => index)
 
