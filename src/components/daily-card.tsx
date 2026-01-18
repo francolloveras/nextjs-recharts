@@ -46,7 +46,7 @@ export default async function DailyCard({ title, range, timeout = 0 }: Props) {
                   ))
               ) : (
                 <tr>
-                  <td colSpan={4} className="text-center text-neutral-400">
+                  <td colSpan={4} className="text-nowrap text-center text-neutral-400">
                     There is no data to display
                   </td>
                 </tr>
