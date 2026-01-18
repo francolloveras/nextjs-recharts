@@ -1,3 +1,5 @@
+export const STATIC_YEAR = 2024
+
 export const CONTINENTS = {
   AFRICA: 'Africa',
   AMERICA: 'America',

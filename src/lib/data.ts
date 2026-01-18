@@ -1,4 +1,4 @@
-import { CONTINENTS_COLORS } from '@/lib/constants'
+import { CONTINENTS_COLORS, STATIC_YEAR } from '@/lib/constants'
 import { createRandomSales } from '@/lib/utils'
 
 export const allSales = createRandomSales()
@@ -7,7 +7,7 @@ export async function getDataByRangeDays(rangeInDays: number, timeout: number) {
   await new Promise((resolve) => setTimeout(resolve, timeout))
 
   // Create a static date to get the range of days.
-  const date = new Date(2024, 9, 1)
+  const date = new Date(STATIC_YEAR, 9, 1)
 
   const startDate = new Date(date.setDate(date.getDate() - rangeInDays))
   const startOfRange = new Date(startDate.setHours(0, 0, 0, 0))
@@ -55,12 +55,11 @@ export async function getDataByRangeDays(rangeInDays: number, timeout: number) {
 }
 
 export function getDataByMonths() {
-  const year = new Date().getFullYear()
   const months = Array.from({ length: 12 }, (_, index) => index)
 
   const data = months.map((month) => {
-    const startOfMonth = new Date(year, month, 1)
-    const endOfMonth = new Date(year, month + 1, 1)
+    const startOfMonth = new Date(STATIC_YEAR, month, 1)
+    const endOfMonth = new Date(STATIC_YEAR, month + 1, 1)
 
     const salesByMonth = allSales.filter(
       ({ date }) =>

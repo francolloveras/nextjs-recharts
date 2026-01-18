@@ -1,4 +1,4 @@
-import { CONTINENTS, COUNTRIES } from '@/lib/constants'
+import { CONTINENTS, COUNTRIES, STATIC_YEAR } from '@/lib/constants'
 
 export function getRandomNumberByRange(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -15,7 +15,7 @@ export function createRandomSales() {
       id: index + 1,
       continent: continents[getRandomNumberByRange(0, continents.length - 1)],
       country: countries[getRandomNumberByRange(0, countries.length - 1)],
-      date: new Date(2024, getRandomNumberByRange(0, 11), getRandomNumberByRange(1, 31))
+      date: new Date(STATIC_YEAR, getRandomNumberByRange(0, 11), getRandomNumberByRange(1, 31))
     })
   }
 
