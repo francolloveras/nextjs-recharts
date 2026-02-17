@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/form-carousel',
-  assetPrefix: '/form-carousel/'
+  basePath: '/nextjs-recharts',
+  assetPrefix: '/nextjs-recharts/'
 };
 
 export default nextConfig;
