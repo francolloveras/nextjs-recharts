@@ -1,7 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  basePath: '/nextjs-recharts',
-  assetPrefix: '/nextjs-recharts/'
-};
+const nextConfig = {};
 
 export default nextConfig;
